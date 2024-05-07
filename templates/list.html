@@ -1,0 +1,22 @@
+{% block header %}
+    <title>seasoning list</title>
+{% endblock header %}
+
+{% block content %}
+    <div>
+        <table>
+            <tr>
+                <th>調味料名</th>
+                <th>大さじ</th>
+                <th>小さじ</th>
+            </tr>
+            {% for item in object_list %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.tbsp|floatformat:"5.1f" }}g</td>
+                    <td>{{ item.tsp|floatformat:"5.1f" }}g</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

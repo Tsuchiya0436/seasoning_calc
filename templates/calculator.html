@@ -1,0 +1,39 @@
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+    <div class="calculator_table">
+        <p>{{ quantity }}人前</p>
+        <table>
+            <tr>
+                <th>調味料</th>
+                <th>量</th>
+                <th>計算結果</th>
+            </tr>
+            {% for seasoning, data in seasoning_calculations.items %}
+                <tr>
+                    <td>{{ seasoning }}</td>
+                    <td>
+                        {% if data.value is not -1 %}
+                            {% if data.amount == 'tbsp' %}
+                                大さじ {{ data.times }} 杯
+                            {% elif data.amount == 'tsp' %}
+                                小さじ {{ data.times }} 杯
+                        {% endif %}
+                    <td>
+                        {% if data.value is not -1 %}
+                            <span class="calculation_result">{{ data.value }}g</span>
+                        {% else %}
+                            登録されていません
+                        {% endif %}
+
+                    </td>
+                        {% else %}
+                            登録されていません
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

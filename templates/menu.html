@@ -1,0 +1,64 @@
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+    <h1>調味料分量 g変換器</h1>
+
+    <form action="{% url 'calculator' %}" method="get">
+        <div class="container">
+            <p>何人分: <input type="number" name="multiple" step="0.1" value="{{ quantity }}"></p>
+            
+            <div>
+                <p>調味料1:<input type="text" name="seasoning_1" value="{{ request.GET.seasoning_1 }}" placeholder="調味料を入力してください" autocomplete"off">
+
+                <select name="amount_1">
+                    <option value="tbsp" {% if request.GET.amount_1 == "tbsp" %}selected{% endif %}>大さじ</option>
+                    <option value="tsp" {% if request.GET.amount_1 == "tsp" %}selected{% endif %}>小さじ</option>
+                </select>
+                <input type="number" name="times_1" value="{{ times_1 }}">
+                </p>
+            </div>
+            <div>
+                <p>調味料2:<input type="text" name="seasoning_2" value="{{ request.GET.seasoning_2 }}" placeholder="調味料を入力してください" autocomplete"off">
+
+                <select name="amount_2">
+                    <option value="tbsp" {% if request.GET.amount_2 == "tbsp" %}selected{% endif %}>大さじ</option>
+                    <option value="tsp" {% if request.GET.amount_2 == "tsp" %}selected{% endif %}>小さじ</option>
+                </select>
+                <input type="number" name="times_2" value="{{ times_2 }}">
+                </p>
+            </div>
+            <div>
+                <p>調味料3:<input type="text" name="seasoning_3" value="{{ request.GET.seasoning_3 }}" placeholder="調味料を入力してください" autocomplete"off">
+
+                <select name="amount_3">
+                    <option value="tbsp" {% if request.GET.amount_3 == "tbsp" %}selected{% endif %}>大さじ</option>
+                    <option value="tsp" {% if request.GET.amount_3 == "tsp" %}selected{% endif %}>小さじ</option>
+                </select>
+                <input type="number" name="times_3" value="{{ times_3 }}">
+                </p>
+            </div>
+            <div>
+                <p>調味料4:<input type="text" name="seasoning_4" value="{{ request.GET.seasoning_4 }}" placeholder="調味料を入力してください" autocomplete"off">
+
+                <select name="amount_4">
+                    <option value="tbsp" {% if request.GET.amount_4 == "tbsp" %}selected{% endif %}>大さじ</option>
+                    <option value="tsp" {% if request.GET.amount_4 == "tsp" %}selected{% endif %}>小さじ</option>
+                </select>
+                <input type="number" name="times_4" value="{{ times_4 }}">
+                </p>
+            </div>
+            <div>
+                <p>調味料5:<input type="text" name="seasoning_5" value="{{ request.GET.seasoning_5 }}" placeholder="調味料を入力してください" autocomplete"off">
+
+                <select name="amount_5">
+                    <option value="tbsp" {% if request.GET.amount_5 == "tbsp" %}selected{% endif %}>大さじ</option>
+                    <option value="tsp" {% if request.GET.amount_5 == "tsp" %}selected{% endif %}>小さじ</option>
+                </select>
+                <input type="number" name="times_5" value="{{ times_5 }}">
+                </p>
+            </div>
+            <button type="submit">計算</button>
+        <a href="{% url 'list' %}" class="btn btn-primary">調味料一覧</a>
+    </form>
+{% endblock content %}
